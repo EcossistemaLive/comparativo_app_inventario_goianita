@@ -120,7 +120,7 @@
         }
 
         /* Grid & Cards */
-        .grid-3 {
+        .grid-compare {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -152,7 +152,7 @@
         /* Images */
         .img-box {
             width: 100%;
-            height: 200px;
+            height: 250px;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border-subtle);
@@ -174,16 +174,41 @@
 
         /* Pricing Elements */
         .price-tag {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
             color: white;
-            margin: 10px 0;
+            margin: 15px 0 5px 0;
             display: block;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         .price-sub {
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 20px;
+        }
+
+        .feature-list li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feature-list i {
+            margin-top: 4px;
         }
 
         /* Table */
@@ -209,12 +234,14 @@
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
             border-bottom: 2px solid var(--border-subtle);
+            width: 33%; /* Equal width for 3 columns */
         }
 
         .comparison-table td {
             padding: 20px;
             border-bottom: 1px solid var(--border-subtle);
             color: #cbd5e1;
+            width: 33%;
         }
 
         .comparison-table tr:last-child td {
@@ -262,6 +289,11 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
         }
+        
+        footer a {
+            color: var(--live-accent);
+            text-decoration: none;
+        }
 
         /* Sticky Nav */
         .sticky-nav {
@@ -305,14 +337,14 @@
         
         <!-- Header / Hero -->
         <header id="home">
-            <span class="subtitle">Relatório Técnico v2.0</span>
-            <h1>Análise Comparativa:<br>Apps de Inventário</h1>
+            <span class="subtitle">Relatório Técnico v2.2</span>
+            <h1>Comparativo Direto:<br>Orca Scan vs. IS Collector</h1>
             <p style="max-width: 600px; margin-bottom: 40px; font-size: 24px; color: #cbd5e1;">
-                Estudo detalhado sobre custo-benefício e aderência técnica para otimização logística e fiscal.
+                Duelo entre as duas principais soluções de mercado para definir a melhor aderência à operação logística.
             </p>
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                 <div style="padding: 10px 20px; border: 1px solid var(--live-accent); border-radius: 50px; color: var(--live-accent); font-family: 'JetBrains Mono'; font-size: 14px;">
-                    <i class="fa-solid fa-check"></i> Análise de Custos
+                    <i class="fa-solid fa-scale-balanced"></i> Comparativo Direto
                 </div>
                 <div style="padding: 10px 20px; border: 1px solid var(--border-subtle); border-radius: 50px; color: #94a3b8; font-family: 'JetBrains Mono'; font-size: 14px;">
                     <i class="fa-solid fa-wifi"></i> Teste Offline
@@ -328,86 +360,73 @@
 
         <!-- Visão Geral -->
         <section id="overview">
-            <h2>Visão Geral dos Candidatos</h2>
-            <div class="grid-3">
+            <h2>Visão Geral dos Concorrentes</h2>
+            <div class="grid-compare">
                 <div class="card">
                     <div class="img-box">
                         <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600" alt="Warehouse Tracking">
                     </div>
                     <h3>Orca Scan</h3>
-                    <p style="font-size: 15px;">A solução "Cloud-First". Foco em rastreabilidade global, GPS e customização extrema de campos.</p>
+                    <p style="font-size: 15px;">A solução "Cloud-First". Foco em rastreabilidade global, GPS e customização extrema de campos. Ideal para saber <strong>onde</strong> está o ativo.</p>
                 </div>
                 <div class="card" style="border-color: var(--live-accent-dim);">
                     <div class="img-box">
                         <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=600" alt="Inventory Count">
                     </div>
                     <h3 style="color: var(--live-accent);">IS Collector</h3>
-                    <p style="font-size: 15px;">A solução "Brasil". Foco em contagem massiva, auditoria fiscal, conferência cega e operação offline.</p>
-                </div>
-                <div class="card">
-                    <div class="img-box">
-                        <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&q=80&w=600" alt="Simple Mobile App">
-                    </div>
-                    <h3>Mobile Inventory</h3>
-                    <p style="font-size: 15px;">A solução "Low-Cost". Foco em simplicidade para pequenos estoques e uso pessoal.</p>
+                    <p style="font-size: 15px;">A solução "Brasil". Foco em contagem massiva, auditoria fiscal, conferência cega e operação offline. Ideal para saber <strong>quanto</strong> tem no estoque.</p>
                 </div>
             </div>
         </section>
 
         <!-- Análise Financeira -->
         <section id="pricing">
-            <h2>Análise Financeira (Mensal)</h2>
-            <div class="grid-3">
-                <!-- Orca -->
+            <h2>Análise Financeira (Mensal Avulso)</h2>
+            <div class="grid-compare">
+                <!-- Orca Scan -->
                 <div class="card" style="text-align: left;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Orca Scan</h3>
-                        <span style="color: #ef4444; font-size: 14px; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> Alto Custo</span>
+                        <h3 style="margin: 0;">Orca Scan</h3>
+                        <span style="color: #ef4444; font-size: 12px; font-weight: 700; border: 1px solid #ef4444; padding: 2px 8px; border-radius: 4px;">BUSINESS</span>
                     </div>
-                    <span class="price-tag">R$ ~240,00<span style="font-size: 14px; color: #64748b; font-weight: 400;"> /usuário</span></span>
-                    <p class="price-sub">Baseado no plano Business ($40 USD).</p>
-                    <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 20px 0;">
-                    <ul style="font-size: 14px; list-style: none;">
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 10px;"></i>Plano Grátis inútil (50 itens)</li>
-                        <li><i class="fa-solid fa-dollar-sign" style="color: #ef4444; margin-right: 10px;"></i>Variação Cambial (Dólar)</li>
+                    <span class="price-tag">$40 USD<span style="font-size: 16px; color: #64748b; font-weight: 400;"> /mês</span></span>
+                    <span class="price-sub">Aprox. R$ 240,00 (Cotação do dia)</span>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-users" style="color: #cbd5e1;"></i> <strong>Cobrado por Usuário</strong></li>
+                        <li><i class="fa-solid fa-cloud" style="color: #cbd5e1;"></i> 20.000 linhas por planilha</li>
+                        <li><i class="fa-solid fa-bolt" style="color: #cbd5e1;"></i> Histórico de alterações (Log)</li>
+                        <li><i class="fa-solid fa-code" style="color: #cbd5e1;"></i> Integração API & Webhooks</li>
+                        <li style="color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Plano Grátis limitado a 50 itens</li>
                     </ul>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 20px;">*Requer cartão internacional.</div>
                 </div>
 
                 <!-- IS Collector -->
                 <div class="card" style="border-color: var(--live-accent); background: rgba(0, 232, 0, 0.02); text-align: left;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>IS Collector</h3>
-                        <span style="color: var(--live-accent); font-size: 14px; font-weight: 700;"><i class="fa-solid fa-star"></i> Melhor Escolha</span>
+                        <h3 style="margin: 0;">IS Collector</h3>
+                        <span style="color: var(--live-accent); font-size: 12px; font-weight: 700; border: 1px solid var(--live-accent); padding: 2px 8px; border-radius: 4px;">RECOMENDADO</span>
                     </div>
-                    <span class="price-tag" style="color: var(--live-accent);">R$ 19,00<span style="font-size: 14px; color: #64748b; font-weight: 400;"> /disp (Anual)</span></span>
-                    <p class="price-sub">Ou R$ 79,00 no plano mensal avulso.</p>
-                    <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 20px 0;">
-                    <ul style="font-size: 14px; list-style: none;">
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--live-accent); margin-right: 10px;"></i>Preço fixo em Reais</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--live-accent); margin-right: 10px;"></i>Plano teste 100% funcional</li>
+                    <span class="price-tag" style="color: var(--live-accent);">R$ 79,00<span style="font-size: 16px; color: #64748b; font-weight: 400;"> /mês</span></span>
+                    <span class="price-sub">Plano Mensal (Sem fidelidade)</span>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-mobile-screen" style="color: var(--live-accent);"></i> <strong>Cobrado por Dispositivo</strong></li>
+                        <li><i class="fa-solid fa-plug" style="color: var(--live-accent);"></i> <strong>Integração Tiny ERP</strong> (XLS/API)</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--live-accent);"></i> Exportação Ilimitada (Excel/PDF)</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--live-accent);"></i> Inventários e Conferência Cega</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--live-accent);"></i> Modo 100% Offline</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--live-accent);"></i> Gerenciador Web Incluso</li>
                     </ul>
-                </div>
-
-                <!-- Mobile Inventory -->
-                <div class="card" style="text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Mobile Inv.</h3>
-                        <span style="color: #3b82f6; font-size: 14px; font-weight: 700;"><i class="fa-solid fa-piggy-bank"></i> Econômico</span>
-                    </div>
-                    <span class="price-tag">Grátis<span style="font-size: 14px; color: #64748b; font-weight: 400;"> /limitado</span></span>
-                    <p class="price-sub">Compras no app (~R$ 15 a R$ 30).</p>
-                    <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 20px 0;">
-                    <ul style="font-size: 14px; list-style: none;">
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #3b82f6; margin-right: 10px;"></i>Grátis para uso local</li>
-                        <li><i class="fa-solid fa-exclamation" style="color: #fbbf24; margin-right: 10px;"></i>Recursos Web limitados</li>
-                    </ul>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 20px;">Pagamento em moeda local (BRL).</div>
                 </div>
             </div>
         </section>
 
         <!-- Comparativo Técnico -->
         <section id="technical">
-            <h2>Quadro Técnico</h2>
+            <h2>Quadro Técnico Comparativo</h2>
             <div class="table-container">
                 <table class="comparison-table">
                     <thead>
@@ -415,39 +434,38 @@
                             <th>Recurso</th>
                             <th>Orca Scan</th>
                             <th>IS Collector</th>
-                            <th>Mobile Inventory</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td><strong>Integração ERP</strong></td>
+                            <td>Via Zapier / API (Complexo)</td>
+                            <td class="highlight-cell">Nativa Tiny/Bling (Excel/API)</td>
+                        </tr>
+                        <tr>
                             <td><strong>Foco Principal</strong></td>
                             <td>Rastreamento & Status</td>
                             <td class="highlight-cell">Contagem & Balanço</td>
-                            <td>Gestão Simples</td>
                         </tr>
                         <tr>
                             <td><strong>Modo Offline</strong></td>
                             <td>Parcial (Sincroniza)</td>
                             <td class="highlight-cell">Nativo (Total)</td>
-                            <td>Local (Armazenado)</td>
                         </tr>
                         <tr>
                             <td><strong>Gestão Web</strong></td>
                             <td>Excel em Tempo Real</td>
                             <td>Gerenciador de Inventários</td>
-                            <td>Visualizador Básico</td>
                         </tr>
                         <tr>
                             <td><strong>Recursos Especiais</strong></td>
                             <td>GPS, Assinatura, Fluxos</td>
                             <td>Conferência Cega, Setores</td>
-                            <td>Fotos, Importação Fácil</td>
                         </tr>
                         <tr>
                             <td><strong>Plano Grátis</strong></td>
                             <td style="color: #ef4444;">Ruim (Limitado a 50)</td>
                             <td>Médio (Sem exportação)</td>
-                            <td style="color: #3b82f6;">Bom (Ilimitado local)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -468,15 +486,16 @@
                         <p style="font-size: 16px; margin-bottom: 10px;"><strong style="color: var(--live-accent);">Pontos Fortes:</strong></p>
                         <ul style="font-size: 16px; margin-left: 20px;">
                             <li>Custo previsível em Reais.</li>
+                            <li>Integração homologada <strong>Tiny ERP</strong>.</li>
                             <li>Robustez para operar offline.</li>
                             <li>Ferramentas de auditoria cega.</li>
                         </ul>
                     </div>
                     <div style="opacity: 0.7;">
-                        <p style="font-size: 16px; margin-bottom: 10px;"><strong>Alternativas:</strong></p>
+                        <p style="font-size: 16px; margin-bottom: 10px;"><strong>Alternativa (Orca Scan):</strong></p>
                         <ul style="font-size: 14px; margin-left: 20px;">
-                            <li><strong style="color: white;">Orca Scan:</strong> Apenas se precisar de GPS/Rastreamento de ativos caros.</li>
-                            <li><strong style="color: white;">Mobile Inventory:</strong> Apenas para estoques pessoais ou de custo zero.</li>
+                            <li>Apenas se a prioridade for rastreabilidade global e GPS.</li>
+                            <li>Se a operação tiver orçamento para pagar em Dólar.</li>
                         </ul>
                     </div>
                 </div>
@@ -484,7 +503,7 @@
         </section>
 
         <footer>
-            LIVE CONSULTORIA © 2026 • Cléber Donato • Goiânia, GO
+            <a href="mailto:cleberdonato@ecossistemalive.com.br">₢ Powered by Cléber Donato.</a>
         </footer>
 
     </div>
